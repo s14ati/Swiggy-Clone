@@ -63,7 +63,6 @@ function Cards() {
       </div>
 
       {/*  cards */}
-      {/* <div className="border mt-8 h-screen"> */}
       <div className="mt-5 h-full gap-5 overflow-hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {dishes.map((res, idx) => (
           <div

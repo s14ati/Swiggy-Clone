@@ -16,7 +16,6 @@ function HelpSupport() {
   return (
     <div className="bg-[#37718e] h-260  flex justify-center">
       <div className=" h-[900px]">
-        {/* Header Text */}
         <div className="mt-[60px] pl-[40px]  w-full h-20">
           <p className="text-[30px] text-white font-bold">Help & Support</p>
           <p className="text-[17px] text-white">
@@ -24,7 +23,6 @@ function HelpSupport() {
           </p>
         </div>
 
-        {/* White Box */}
         <div className="mt-5 bg-white pl-[60px] pt-10 border h-[800px] flex w-full">
           <div className="w-[25%] h-162 bg-blue-100 p-2 flex flex-col gap-2">
             {details.map((det, idx) => (
@@ -40,7 +38,6 @@ function HelpSupport() {
           </div>
 
           <div className=" w-[100%] ml-10 pt-8">
-            {/* first part */}
             <p className="text-[27px] font-bold">Partner Onboarding</p>
 
             <div
@@ -74,8 +71,6 @@ function HelpSupport() {
             )}
             <div className="border border-gray-200 mt-6"></div>
 
-            {/* second part */}
-
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
               onClick={() =>
@@ -108,7 +103,6 @@ function HelpSupport() {
             )}
             <div className="border border-gray-200 mt-6"></div>
 
-            {/* Third part */}
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
               onClick={() =>
@@ -134,8 +128,6 @@ function HelpSupport() {
               </p>
             )}
             <div className="border border-gray-200 mt-6"></div>
-
-            {/* Four part */}
 
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
@@ -167,8 +159,6 @@ function HelpSupport() {
             )}
             <div className="border border-gray-200 mt-6"></div>
 
-            {/* Fifth Part */}
-
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
               onClick={() =>
@@ -197,8 +187,6 @@ function HelpSupport() {
               </p>
             )}
             <div className="border border-gray-200 mt-6"></div>
-
-            {/* SIxth Part */}
 
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
@@ -233,8 +221,6 @@ function HelpSupport() {
             )}
             <div className="border border-gray-200 mt-6"></div>
 
-            {/* Seventh Part */}
-
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"
               onClick={() =>
@@ -262,8 +248,6 @@ function HelpSupport() {
               </p>
             )}
             <div className="border border-gray-200 mt-6"></div>
-
-            {/* Eight Part */}
 
             <div
               className="mt-4 flex justify-between mr-10 cursor-pointer"

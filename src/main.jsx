@@ -9,12 +9,11 @@ import Swiggycorporate from "./pages/Swiggycorporate.jsx";
 import "./index.css";
 import Cart from "./pages/Cart.jsx";
 import RestaurantCardMenu from "./component/RestaurantCardMenu.jsx";
-import { store } from './store.js'
-import { Provider } from 'react-redux'
+import { store } from "./store.js";
+import { Provider } from "react-redux";
 import LogInForm from "./pages/LogInForm.jsx";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +22,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "swiggy_corporate",
-        element: <Swiggycorporate/>,
-      }, 
+        element: <Swiggycorporate />,
+      },
     ],
-  }, 
+  },
   {
     path: "/offers",
     element: <Offers />,
@@ -45,19 +44,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/restaurants/menu/:restId",
-    element: <RestaurantCardMenu/> ,
+    element: <RestaurantCardMenu />,
   },
   {
     path: "/loginForm",
-    element: <LogInForm/> 
+    element: <LogInForm />,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </Provider>
-     <ToastContainer />
+    <ToastContainer />
   </StrictMode>
 );

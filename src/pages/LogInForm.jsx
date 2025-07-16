@@ -22,11 +22,9 @@ function LogInForm() {
   } = useForm();
 
   function onSubmit1() {
-    // console.log("Submitted data:", data);
     toast.success("LogIn successfully!");
   }
   function onSubmit2() {
-    // console.log("Submitted data:", data);
     toast.success("Sign Up successfully!");
   }
   const [logInState, setLogInState] = useState(true);
@@ -42,7 +40,6 @@ function LogInForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
       <div className="w-full max-w-4xl flex rounded-lg overflow-hidden shadow-2xl">
-        {/* Left Form Section */}
         <div className="w-2/3 p-8">
           <h1 className="text-3xl font-bold text-black mb-2">
             {logInState ? "Log In" : "Sign Up"}
@@ -169,7 +166,6 @@ function LogInForm() {
           )}
         </div>
 
-        {/* Right Image Section */}
         <div className="w-1/3 bg-gray-100 flex items-center justify-center">
           <img src={logIn} alt="Login" className="w-48" />
         </div>

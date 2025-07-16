@@ -19,29 +19,21 @@ function RestaurantCardMenu() {
         `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9628669&lng=77.57750899999999&restaurantId=${restId}&catalog_qa=undefined&submitAction=ENTER`
       );
       const json = await response.json();
-      // This is th data of Menu Card
-
-      //groupedCard is an object and we are going deep into the object
       const menuData = json?.data?.cards
         ?.find((obj) => obj?.groupedCard)
         ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
           (obj) =>
-            // filtering out all the objects and nested objects of menu
             obj?.card?.card["@type"]?.includes("ItemCategory") ||
             obj?.card?.card["@type"]?.includes("NestedItemCategory")
         );
-      // console.log(menuData);
 
       const organisedMenudata = menuData?.map((item) => {
-        // console.log(item);
-        // if types are different like ItemCategory or NestedItemCategory , then are are doing this
         const type = item?.card?.card["@type"];
         const title = item?.card?.card?.title;
-        // kisi kisi m itmecards nested h to agar wo naa mile to empty array de-de
+
         const itemCards = item?.card?.card?.itemCards || [];
         const categories = item?.card?.card?.categories || [];
 
-        // console.log(categories);
         if (type?.includes("NestedItemCategory")) {
           return {
             title,
@@ -62,12 +54,10 @@ function RestaurantCardMenu() {
         }
       });
 
-      // This is the data of above Menu from swiggy
       const storeData = json?.data?.cards?.find((item) =>
         item?.card?.card["@type"]?.includes("food.v2.Restaurant")
       )?.card?.card?.info;
       setResInfo(storeData);
-      // console.log(menuData);
 
       setResMenu(organisedMenudata);
     }
@@ -76,11 +66,8 @@ function RestaurantCardMenu() {
   }, [restId]);
 
   if (!resInfo) return <div>Loading...</div>;
-  // console.log(resInfo);
 
-  // else destructure resInfo
   const { name, locality, avgRating } = resInfo;
-  // console.log(resMenu);
 
   return (
     <>
@@ -142,9 +129,8 @@ function RestaurantCardMenu() {
 // RECOMMENDED PART
 
 function ItemCategory({ data = {} }) {
-  // console.log(props);
   const { title, itemCards } = data;
-  // const { title, itemCards } = props?.data;
+
   const [showCards, setShowCards] = useState(false);
 
   return (
@@ -163,68 +149,18 @@ function ItemCategory({ data = {} }) {
       {showCards && (
         <ul className="px-10 py-5 space-y-10   ">
           {itemCards?.map((item) => (
-            <MenuItem
-              key={item?.card?.info?.id}
-              menuInfo={item?.card?.info}
-            />
+            <MenuItem key={item?.card?.info?.id} menuInfo={item?.card?.info} />
           ))}
         </ul>
       )}
-      {/* <div className="border w-[100%] mt-5 border-gray-300    "></div> */}
     </div>
   );
 }
-
-// function NestedItemCategory(props) {
-//   const { title, categories } = props?.data;
-//   const [showCards, setShowCards] = useState(true);
-
-//   return (
-//     <div className="border">
-//       <h2 className="text-[17px] border  font-bold pt-2 pb-3  border-black rounded-lg">
-//         {title}
-//       </h2>
-//       <div className="w-[680px] ml-[38px]    ">
-//         {categories?.map((subcategory) => (
-//           <div key={subcategory?.title}>
-//             <h3
-//               className="font-semibold ml-[-40px] mr-[-40px] text-[16px] border pb-1.5 cursor-pointer rounded-lg"
-//               onClick={() => setShowCards(!showCards)}
-//             >
-//               {subcategory?.title} ({subcategory?.itemCards?.length})
-//               {showCards ? (
-//                 <IoIosArrowUp className="inline ml-141 mb-1 " />
-//               ) : (
-//                 <IoIosArrowDown className="inline ml-141 mb-1" />
-//               )}
-//             </h3>
-//             <div className="border w-[112%] mb-20 ml-[-40px] mt-5 border-gray-200"></div>
-//             {showCards && (
-//               <div className="mt-[-50px] border">
-//                 <ul className="">
-//                   {subcategory?.itemCards?.map((item) => (
-//                     <MenuItem
-//                       key={item?.card?.info?.id}
-//                       menuInfo={item?.card?.info}
-//                     />
-//                   ))}
-//                 </ul>
-//               </div>
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
 
 function NestedItemCategory(props) {
   const { data } = props || {};
   const { title, categories } = data || {};
 
-  // const { title, categories } = props?.data;
-
-  // state to track which subcategory is expanded
   const [openIndexes, setOpenIndexes] = useState({});
 
   // toggle handler
@@ -259,7 +195,6 @@ function NestedItemCategory(props) {
                 )}
               </h3>
 
-              {/* <div className="border w-[112%] mb-5 ml-[-40px] mt-5 border-gray-200"></div> */}
               {isOpen && (
                 <div className="mt-3  ">
                   <ul>
@@ -283,13 +218,9 @@ function NestedItemCategory(props) {
 
 // UNDER RECOMMENDED ITEMS
 function MenuItem(props) {
-  // console.log(props);
-
   const { menuInfo } = props || {};
   const dispatch = useDispatch();
   const { name, price, defaultPrice, description, imageId } = menuInfo || {};
-  // const { name, price, defaultPrice, description, imageId } = props?.menuInfo;
-
   const [showFull, setShowFull] = useState(false);
   const words = description?.split(" ") || [];
   const isLong = words.length > 20;
@@ -324,7 +255,6 @@ function MenuItem(props) {
                         e.stopPropagation();
                         toggleDesc();
                       }}
-                      // onClick={toggleDesc}
                       className="text-black pl-2 font-bold text-[16px] underline cursor-pointer"
                     >
                       {showFull ? "less" : "more"}
@@ -344,10 +274,6 @@ function MenuItem(props) {
                 src={restaurantImage + imageId}
               />
             )}
-
-            {/* <div className="cursor-pointer hover:bg-gray-200 transform transition-all ease-in-out delay-75 shadow-lg absolute bottom-[-15px] w-[110px] text-center p-1 text-[18px] rounded-lg text-green-700 font-semibold bg-white">
-              ADD
-            </div> */}
 
             <div
               onClick={(e) => {

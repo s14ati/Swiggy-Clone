@@ -70,8 +70,6 @@ function Cart() {
 
           <h2 className="text-2xl font-bold text-black text-center mb-10">
             Total: ₹ {Math.ceil(total)}
-            {/* // cartItems.reduce((total, item) => total + (item.price || 0), 0) /
-            // 100 )} */}
           </h2>
         </>
       )}

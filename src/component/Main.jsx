@@ -1,7 +1,6 @@
 import advertise from "../../public/Food_collectionbanner.avif";
 
 function Main() {
-
   return (
     <div className="pt-[90px] ">
       <div className="relative w-[80%] ml-40 mt-10 flex flex-col items-center ">
@@ -11,9 +10,6 @@ function Main() {
             Order Online Delivery Restaurants Near Me
           </p>
         </div>
-
-        
-
       </div>
     </div>
   );

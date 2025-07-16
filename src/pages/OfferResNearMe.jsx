@@ -125,90 +125,89 @@ function OfferResNearMe() {
 
   return (
     <div>
-    <div className="flex justify-center">
-      <div className="mt-14 w-[80%]">
-        <div className=" relative ">
-          <img src={offerRes} />
-          <div className=" absolute top-56 w-[600px] h-[100px] left-14">
-            <p className="text-white text-[33px] font-semibold font-serif  ">
-              Restaurants With Great Offers
-            </p>
-            <p className="text-white text-[33px] font-semibold font-serif  ">
-              Near Me
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-14">
-          <p className="text-[20px] text-gray-500">
-            Order Online <span className="ml-10 font-bold">Dineout</span>
-          </p>
-          <div className=" w-[8%] h-1 bg-orange-600 rounded-3xl mt-1 border-orange-600 ml-38"></div>
-          <div className="w-[100%] border border-gray-300"></div>
-
-          {/* filter */}
-
-          <div className=" flex items-center mt-5 w-[100%] h-[50px] gap-3   ">
-            <div className="border w-[110px] bg-gray-200 flex cursor-pointer font-semibold items-center justify-center pt-1 pb-1 bg rounded-4xl text-[15px]">
-              {" "}
-              <TbSquareRoundedNumber1Filled className="w-9 h-6 text-orange-500" />{" "}
-              Filter <LiaFilterSolid className=" w-7 h-5 " />
-            </div>
-            <div className="border border-gray-300 shadow w-[90px] cursor-pointer flex gap-1.5 items-center font-semibold pt-1 pl-2.5 pb-1 bg rounded-4xl text-[15px]">
-              Sort By <IoIosArrowDown className="mt-1" />
-            </div>
-            <div className="border border-gray-300 shadow w-[105px] cursor-pointer text-center pt-1 pl-2.5 pr-2 pb-1 bg rounded-4xl text-[15px] font-semibold">
-              Book a table
-            </div>
-            <div className="border border-gray-300 shadow w-[100px] cursor-pointer text-center pt-1  pl-2 pr-2 pb-1 bg rounded-4xl text-[15px] font-semibold">
-              Within 5Km
-            </div>
-            <div className="border border-gray-300 shadow w-[90px] cursor-pointer text-center pt-1 pl-2 pr-1.5 pb-1 bg rounded-4xl text-[15px] font-semibold">
-              Rating 4+
-            </div>
-            <div className="border border-gray-300 shadow w-[120px] cursor-pointer text-center p-1 bg rounded-4xl text-[15px] font-semibold">
-              Serves Alcohol
-            </div>
-          </div>
-
-          {/* cards */}
-          {/* passing all the properties of the object .res(...res :- spread operator) as individual props */}
-          <div className="mt-8 flex gap-7">
-            {restaurants.map((res, idx) => (
-              <RestaurantCard key={idx} {...res} />
-            ))}
-          </div>
-
-          {/* offer Details  */}
-          <div className="bg-white rounded-xl max-w-7xl mx-auto text-gray-700 border shadow border-gray-300 mt-15">
-            <h1 className="text-[28px] font-bold text-gray-500 pl-4 pt-5   ">
-              Get the Best Offers on Food from Top Restaurants Near You
-            </h1>
-
-            <div
-              className={`transition-all duration-400 ease-in-out overflow-hidden ${
-                isExpanded ? "max-h-[500px]" : "max-h-[82px]"
-              }`}
-            >
-              <p className="pt-2 leading-relaxed pl-4 text-[16px] font-semibold  ">
-                {offerDeatils}
+      <div className="flex justify-center">
+        <div className="mt-14 w-[80%]">
+          <div className=" relative ">
+            <img src={offerRes} />
+            <div className=" absolute top-56 w-[600px] h-[100px] left-14">
+              <p className="text-white text-[33px] font-semibold font-serif  ">
+                Restaurants With Great Offers
+              </p>
+              <p className="text-white text-[33px] font-semibold font-serif  ">
+                Near Me
               </p>
             </div>
+          </div>
 
-            {/* Toggle Button */}
-            <button
-              onClick={isToggle}
-              className="text-orange-500  pl-4 font-bold mt-3 hover:underline"
-            >
-              {isExpanded ? "Show less" : "See more"}
-            </button>
+          <div className="mt-14">
+            <p className="text-[20px] text-gray-500">
+              Order Online <span className="ml-10 font-bold">Dineout</span>
+            </p>
+            <div className=" w-[8%] h-1 bg-orange-600 rounded-3xl mt-1 border-orange-600 ml-38"></div>
+            <div className="w-[100%] border border-gray-300"></div>
+
+            {/* filter */}
+
+            <div className=" flex items-center mt-5 w-[100%] h-[50px] gap-3   ">
+              <div className="border w-[110px] bg-gray-200 flex cursor-pointer font-semibold items-center justify-center pt-1 pb-1 bg rounded-4xl text-[15px]">
+                {" "}
+                <TbSquareRoundedNumber1Filled className="w-9 h-6 text-orange-500" />{" "}
+                Filter <LiaFilterSolid className=" w-7 h-5 " />
+              </div>
+              <div className="border border-gray-300 shadow w-[90px] cursor-pointer flex gap-1.5 items-center font-semibold pt-1 pl-2.5 pb-1 bg rounded-4xl text-[15px]">
+                Sort By <IoIosArrowDown className="mt-1" />
+              </div>
+              <div className="border border-gray-300 shadow w-[105px] cursor-pointer text-center pt-1 pl-2.5 pr-2 pb-1 bg rounded-4xl text-[15px] font-semibold">
+                Book a table
+              </div>
+              <div className="border border-gray-300 shadow w-[100px] cursor-pointer text-center pt-1  pl-2 pr-2 pb-1 bg rounded-4xl text-[15px] font-semibold">
+                Within 5Km
+              </div>
+              <div className="border border-gray-300 shadow w-[90px] cursor-pointer text-center pt-1 pl-2 pr-1.5 pb-1 bg rounded-4xl text-[15px] font-semibold">
+                Rating 4+
+              </div>
+              <div className="border border-gray-300 shadow w-[120px] cursor-pointer text-center p-1 bg rounded-4xl text-[15px] font-semibold">
+                Serves Alcohol
+              </div>
+            </div>
+
+            {/* cards */}
+            <div className="mt-8 flex gap-7">
+              {restaurants.map((res, idx) => (
+                <RestaurantCard key={idx} {...res} />
+              ))}
+            </div>
+
+            {/* offer Details  */}
+            <div className="bg-white rounded-xl max-w-7xl mx-auto text-gray-700 border shadow border-gray-300 mt-15">
+              <h1 className="text-[28px] font-bold text-gray-500 pl-4 pt-5   ">
+                Get the Best Offers on Food from Top Restaurants Near You
+              </h1>
+
+              <div
+                className={`transition-all duration-400 ease-in-out overflow-hidden ${
+                  isExpanded ? "max-h-[500px]" : "max-h-[82px]"
+                }`}
+              >
+                <p className="pt-2 leading-relaxed pl-4 text-[16px] font-semibold  ">
+                  {offerDeatils}
+                </p>
+              </div>
+
+              {/* Toggle Button */}
+              <button
+                onClick={isToggle}
+                className="text-orange-500  pl-4 font-bold mt-3 hover:underline"
+              >
+                {isExpanded ? "Show less" : "See more"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-        <div>
-          <OfferFooter />
-        </div>
+      <div>
+        <OfferFooter />
+      </div>
     </div>
   );
 }

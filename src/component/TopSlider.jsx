@@ -1,36 +1,32 @@
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
-// import starRating from "../../public/starRating.png"
 import Restaurantcards from "./Restaurantcards";
 import Cards from "./Cards";
 
 function TopSlider() {
-  // initial dishes array is empty
   const [dishes, setDishes] = useState([]);
-  // for slider
+
   const [slider, setSlider] = useState(0);
 
-
-  // once finish loading than will make API call then we get data of restaurant
   useEffect(() => {
     const fetchDishes = async () => {
       try {
         const response = await fetch(
           "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9628669&lng=77.57750899999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        ); // Response Object
+        );
         const json = await response.json();
         const imageCard = json?.data?.cards?.find(
           (item) => item?.card?.card?.imageGridCards?.info
         );
-  
+
         const dishes = imageCard?.card?.card?.imageGridCards?.info?.map(
           (dish) => ({
             id: dish.id,
             imageId: dish.imageId,
           })
         );
-        // console.log(dishes);
+
         setDishes(dishes);
       } catch (err) {
         console.log(err.message);
@@ -53,8 +49,6 @@ function TopSlider() {
     setSlider(Math.max(0, prev));
   }
 
-  
-
   return (
     <div className="p-4 h-full w-[80%] ml-40">
       <div className=" w-[100%] mt-10 flex gap-218">
@@ -70,19 +64,6 @@ function TopSlider() {
           />
         </div>
       </div>
-
-      {/* <div className=" mt-5 flex flex-wrap gap-5 overflow-hidden">
-        {dishes?.length > 0 &&
-          dishes.slice(slider, slider + 7).map((dish) => (
-            <div key={dish.id}>
-              <img
-                src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${dish.imageId}`}
-                alt={`${dish.id}`}
-                className="w-[150px] h-35    object-cover mt-2 rounded"
-              />
-            </div>
-          ))}
-      </div> */}
 
       <div className="overflow-hidden  mt-5">
         <div
@@ -105,16 +86,12 @@ function TopSlider() {
 
       <div className="border border-gray-200 mt-20 "></div>
 
-      {/* second slider */}
-    
-
-        {/* Restaurant Cards */}
-        <div className=" mt-10    ">
-          <Restaurantcards />
-          <Cards/>
-        </div>
+      {/* Restaurant Cards */}
+      <div className=" mt-10    ">
+        <Restaurantcards />
+        <Cards />
       </div>
-  
+    </div>
   );
 }
 

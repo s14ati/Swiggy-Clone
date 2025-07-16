@@ -5,7 +5,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 function Restaurantcards() {
-  // initial restaurant array is empty
   const [res, setRestaurants] = useState([]);
   const [slider, setSlider] = useState(0);
   const cardsPerSlide = 4;
@@ -15,17 +14,13 @@ function Restaurantcards() {
       try {
         const response = await fetch(
           "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9628669&lng=77.57750899999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        ); // Response Object
+        );
         const json = await response.json();
         const restaurantData = json?.data?.cards?.find((item) =>
           item?.card?.card?.id?.includes("top_brands")
-        )?.card?.card?.gridElements?.infoWithStyle?.restaurants; //after API call, after we get this data and we setRestaurants data
+        )?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-        // put restaurants data into setResturant function
         setRestaurants(restaurantData);
-
-        // console.log(restaurants);
-        // console.log(restaurantData);
       } catch (err) {
         console.log(err.message);
       }
@@ -41,7 +36,7 @@ function Restaurantcards() {
   }
 
   function resPrevSlider() {
-    if (slider == 0) return; // already at start
+    if (slider == 0) return;
     setSlider(slider - cardsPerSlide);
   }
 

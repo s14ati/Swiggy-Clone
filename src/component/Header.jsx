@@ -102,7 +102,10 @@ function Header() {
               Help
             </NavLink>
 
-            <NavLink className="hover:text-orange-500 text-[17px] font-semibold" to="/loginForm">
+            <NavLink
+              className="hover:text-orange-500 text-[17px] font-semibold"
+              to="/loginForm"
+            >
               <MdOutlineAccountCircle className=" inline w-[30px] h-[28px] mr-2   " />
               Sign In
             </NavLink>
