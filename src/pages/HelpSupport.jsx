@@ -12,7 +12,7 @@ function HelpSupport() {
     "Instamart Onboarding",
     "IRCTC FAQ",
   ];
-
+ 
   return (
     <div className="bg-[#37718e] h-260  flex justify-center">
       <div className=" h-[900px]">
