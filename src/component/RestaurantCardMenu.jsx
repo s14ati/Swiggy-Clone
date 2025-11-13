@@ -65,6 +65,8 @@ function RestaurantCardMenu() {
     fetchMenu();
   }, [restId]);
 
+  // ......
+
   if (!resInfo) return <div>Loading...</div>;
 
   const { name, locality, avgRating } = resInfo;
